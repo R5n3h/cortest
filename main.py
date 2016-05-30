@@ -12,9 +12,10 @@ threadLock = threading.Lock()
 threads = []
 searchLink = "https://www.googleapis.com/customsearch/v1" \
              "?q=%(q)s" \
-             "&num=%(num)" \
-             "d&key=AIzaSyDfM13UigJxr9AHsV15y37lhfEMS66zvS8" \
-             "&cx=010864854750275129855:bq0gjrtykuk&alt=json"
+             "&num=%(num)d" \
+             "d&key=AIzaSyAmlXbO3ADJNfbsSMKMEd2-j8PXcE5rksU" \
+             "&cx=010864854750275129855:bq0gjrtykuk" \
+             "&alt=json"
 
 with open('links.txt', 'r') as readfile:
     data_file = readfile.read()
@@ -42,12 +43,11 @@ class SearchThread(threading.Thread):
     def run(self):
         threadLock.acquire()
         link = searchLink % {
-            "start": 0,
             "num": 1,
             "q": self.term,
         }
-        print "Start Thread name %s. open url for %s" % (self.getName(), self.term)
 
+        print "Start Thread name %s. open url for %s" % (self.getName(), self.term)
         try:
             response = urllib2.urlopen(link)
             response_json = json.loads(response.read())
