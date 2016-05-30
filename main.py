@@ -13,7 +13,7 @@ threads = []
 searchLink = "https://www.googleapis.com/customsearch/v1" \
              "?q=%(q)s" \
              "&num=%(num)d" \
-             "d&key=AIzaSyAmlXbO3ADJNfbsSMKMEd2-j8PXcE5rksU" \
+             "d&key=AIzaSyCRmI5pzauFnPi0pzTKlpj06cowcdKxIPE" \
              "&cx=010864854750275129855:bq0gjrtykuk" \
              "&alt=json"
 
