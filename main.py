@@ -16,7 +16,7 @@ searchLink = "https://www.googleapis.com/customsearch/v1" \
              "d&key=AIzaSyDfM13UigJxr9AHsV15y37lhfEMS66zvS8" \
              "&cx=010864854750275129855:bq0gjrtykuk&alt=json"
 
-with open('/vagrant/PycharmProjects/cortex/links.txt', 'r') as readfile:
+with open('links.txt', 'r') as readfile:
     data_file = readfile.read()
     dataLines = data_file.splitlines()
 
@@ -30,8 +30,8 @@ def dash():
         threads.append(thread)
         i += 1
 
-    for t in threads:
-        t.join()
+    for _thread in threads:
+        _thread.join()
 
     return render_template('index.html', items=items)
 
