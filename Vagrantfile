@@ -67,7 +67,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get install -y python-dev python-pip nginx
     pip install uwsgi Flask
-    chmod +x /vargrant/install_files/install.sh
-    sh /vargrant/install_files/install.sh
+    chmod +x /vagrant/install_files/install.sh
+    sh /vagrant/install_files/install.sh
   SHELL
 end
