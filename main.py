@@ -23,12 +23,10 @@ with open('links.txt', 'r') as readfile:
 
 @app.route('/')
 def dash():
-    i = 1
     for line in dataLines:
-        thread = SearchThread(i, line)
+        thread = SearchThread(line)
         thread.start()
         threads.append(thread)
-        i += 1
 
     for _thread in threads:
         _thread.join()
@@ -37,9 +35,8 @@ def dash():
 
 
 class SearchThread(threading.Thread):
-    def __init__(self, search_id, term):
+    def __init__(self, term):
         threading.Thread.__init__(self)
-        self.search_id = search_id
         self.term = term
 
     def run(self):
