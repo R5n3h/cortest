@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Cortest installation file."
 
 BASE_DIR="/vagrant/"
 INSTALL_DIR="install_files"
@@ -10,5 +9,5 @@ cp "$INSTALL_DIR/cortestapp.conf" "/etc/init/"
 
 useradd -G www-data web
 
-/etc/init.d/nginx restart
-service cortestapp start
+sudo /etc/init.d/nginx reload
+service cortestapp restart
