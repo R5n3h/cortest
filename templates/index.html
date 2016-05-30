@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Flascurly</title>
+</head>
+<body>
+<div>
+    {% for item in items %}
+    <div class="item">
+        <h3>{{ item.title }}</h3>
+        <a href="{{ item.link }}">{{ item.link }}</a>
+        <p>{{ item.snippet }}</p>
+    </div>
+    {% else %}
+    <h2>Oopsy, items list is empty... try again later.</h2>
+    {% endfor %}
+</div>
+</body>
+</html>
