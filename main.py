@@ -13,8 +13,8 @@ threads = []
 searchLink = "https://www.googleapis.com/customsearch/v1" \
              "?q=%(q)s" \
              "&num=%(num)" \
-             "d&key=AIzaSyCRmI5pzauFnPi0pzTKlpj06cowcdKxIPE" \
-             "&cx=010864854750275129855:bq0gjrtykuk" \
+             "d&key=AIzaSyC57orTlVkVe64LOPE0BM4KYDiZZpZha2Y" \
+             "&cx=010864854750275129855:qv8jz-flroo" \
              "&alt=json"
 
 with open('links.txt', 'r') as readfile:

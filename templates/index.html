@@ -32,13 +32,10 @@
             <div class="row">
                 {% for item in items %}
                 <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="{{ item.pagemap.cse_thumbnail.src }}" style="display: block; height: 200px;">
-                        <div class="caption item">
-                            <h4>{{ item.title }}</h4>
-                            <p>{{ item.snippet }}</p>
-                            <a href="{{ item.link }}">{{ item.link }}</a>
-                        </div>
+                    <div class="caption item">
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.snippet }}</p>
+                        <a href="{{ item.link }}">{{ item.link }}</a>
                     </div>
                 </div>
                 {% else %}
