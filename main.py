@@ -10,6 +10,8 @@ app = Flask(__name__)
 items = []
 threadLock = threading.Lock()
 threads = []
+
+file_str = 'search_words.txt'
 searchLink = "https://www.googleapis.com/customsearch/v1" \
              "?q=%(q)s" \
              "&num=%(num)" \
@@ -17,7 +19,7 @@ searchLink = "https://www.googleapis.com/customsearch/v1" \
              "&cx=010864854750275129855:qv8jz-flroo" \
              "&alt=json"
 
-with open('links.txt', 'r') as readfile:
+with open(file_str, 'r') as readfile:
     data_file = readfile.read()
     dataLines = data_file.splitlines()
 
