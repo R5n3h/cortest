@@ -57,7 +57,8 @@ class SearchThread(threading.Thread):
                 items.append({
                     "link": first_item['link'],
                     "title": first_item['title'],
-                    "snippet": first_item['snippet']
+                    "snippet": first_item['snippet'],
+                    "thumb": first_item['pagemap']['cse_image'][0]['src']
                 })
             else:
                 print "Could not fetch item for %s" % self.term
