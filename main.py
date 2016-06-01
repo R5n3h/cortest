@@ -3,8 +3,11 @@ __author__ = 'ronsneh'
 from flask import Flask, render_template
 
 import threading
+import logging
 import urllib2
 import json
+
+DEBUG = True
 
 app = Flask(__name__)
 items = []
@@ -18,6 +21,11 @@ searchLink = "https://www.googleapis.com/customsearch/v1" \
              "d&key=AIzaSyC57orTlVkVe64LOPE0BM4KYDiZZpZha2Y" \
              "&cx=010864854750275129855:qv8jz-flroo" \
              "&alt=json"
+
+def _debug(str_output):
+    if DEBUG:
+        print "DEBUG", str_output
+
 
 with open(file_str, 'r') as readfile:
     data_file = readfile.read()
@@ -49,7 +57,7 @@ class SearchThread(threading.Thread):
             "q": self.term,
         }
 
-        print "Start Thread name %s. open url for %s" % (self.getName(), self.term)
+        _debug("Start Thread name %s. open url for %s" % (self.getName(), self.term))
         try:
             response = urllib2.urlopen(link)
             response_json = json.loads(response.read())
@@ -63,11 +71,11 @@ class SearchThread(threading.Thread):
                     "thumb": first_item['pagemap']['cse_image'][0]['src']
                 })
             else:
-                print "Could not fetch item for %s" % self.term
+                _debug("Could not fetch item for %s" % self.term)
         except urllib2.HTTPError as e:
-            print "Thread name %s, could not fetch %s. (%s)" % (self.getName(), self.term, e)
+            _debug("Thread name %s, could not fetch %s. (%s)" % (self.getName(), self.term, e))
 
         threadLock.release()
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=DEBUG, host='0.0.0.0')
